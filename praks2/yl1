@@ -1,0 +1,7 @@
+#!/bin/bash
+# skript algab
+# echo "Tere kasutaja!"
+echo -n "Tere "
+echo -n `whoami`
+echo "!"
+# skripti loop
