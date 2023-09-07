@@ -1,14 +1,10 @@
 #!/bin/bash
-#scripti eesmärk on väljastada mitu päeva on masin töötanud
+#skripti eesmärk on väljastada mitu päeva antud hetkel masin on tööl
 
-#salvestame masina nime muutujasse
-machine_name=$(uname -n)
+#leian masina nime
+host=$(hostname)
 
-#salvestame serveri tööajaga seotud info muutujasse
-uptime_info=$(uptime)
+#leian serveri tööajaga seotud info ja lõikan sealt välja ainult päevade arvu
+days=$(uptime | grep -Eo "up ([0-9]+) day" | awk '{print $2}')
 
-#lõikame saadud info sealt, kus on kirjas, mitu päeva masin on töötanud
-days_up=$(echo $uptime_info | grep -oP '\d+ day' | awk '{print $1}')
-
-#väljastame tulemuse
-echo "Masin $machine_name on töötanud $days_up päeva."
+echo "Masin $host on töötanud $days päev."
