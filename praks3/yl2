@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#see skript otsib .log lõpuga faile var kataloogis, kontrollib nende ridu ning väljastab failide nimekirja kahanemisjärjekorras ridade arvu järgi.
+
+#otsime .log lõpuga faile var kataloogist ning saame nende ridade arvud
+files=$(find /var -type f -name "*.log" -print0 | xargs -0 wc -l | sort -nr)
+
+#väljastame failide nimekirja
+echo "$files" | awk '{print $2}'

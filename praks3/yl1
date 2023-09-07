@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#kuupäev ja aeg
+
+echo "Täna on $(date)"
+#kuupäeva ja kellaaja väljastamine
+
+echo "Täna on $(date +"%A")"
+#näitame päeva nime
+
+echo "Aasta on $(date +"%Y")"
+#näitame aasta numbrit
+
+echo "Kuu on $(date +"%B")"
+#näitame kuu nime
+

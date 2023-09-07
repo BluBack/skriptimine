@@ -1,0 +1,14 @@
+#!/bin/bash
+#scripti eesmärk on väljastada mitu päeva on masin töötanud
+
+#salvestame masina nime muutujasse
+machine_name=$(uname -n)
+
+#salvestame serveri tööajaga seotud info muutujasse
+uptime_info=$(uptime)
+
+#lõikame saadud info sealt, kus on kirjas, mitu päeva masin on töötanud
+days_up=$(echo $uptime_info | grep -oP '\d+ day' | awk '{print $1}')
+
+#väljastame tulemuse
+echo "Masin $machine_name on töötanud $days_up päeva."
