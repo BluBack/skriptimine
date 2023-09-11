@@ -1,0 +1,18 @@
+#!/bin/bash
+# Skript bussiekskursioonide korraldajale
+
+# Selgitame välja grupi suuruse ja bussi mahutavuse
+echo "Kui suur on grupi suurus?"
+read group_size
+echo "Kui palju on kohti bussis?"
+read bus_capacity
+
+# Arvutame välja täielikult täidetud busside arvu
+full_buses=$((group_size/bus_capacity))
+
+# Selgitame välja, kui palju inimesi jääb maha
+leftover_passengers=$((group_size%bus_capacity))
+
+# Väljastame tulemused
+echo "Täielikult täidetud busse on $full_buses"
+echo "Maha jäi $leftover_passengers inimest"

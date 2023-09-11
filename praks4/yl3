@@ -1,0 +1,17 @@
+#!/bin/bash
+# Skript arvutab ühe nädala eeldatava ajakulu antud ainepunktide ja nädalate arvu põhjal
+
+# Küsime kasutajalt ainepunktide ja nädalate arvu
+echo -n "Sisesta ainepunktide arv: "
+read ainepunktid
+echo -n "Sisesta nädalate arv: "
+read nadalad
+
+# Arvutame ajakulu tundides
+ajakulu=$(expr $ainepunktid \* 26)
+
+# Arvutame ühe nädala eeldatava ajakulu ning lisame sellele 1, et ümardada alati ülespoole
+kulunadalas=$(($ajakulu / $nadalad + 1))
+
+# Väljastame tulemuse
+echo "Ühe nädala eeldatav ajakulu on: $kulunadalas tundi."
