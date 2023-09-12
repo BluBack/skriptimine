@@ -1,0 +1,24 @@
+#!/bin/bash
+#Reisist tagasi tuleku arvutamine
+
+#skripti algus
+echo "Pühapäev-0, Esmaspäev-1, Laupäev-6"
+#küsime andmed
+echo -n "Sisesta millal sõidad ära (arvuna 0-6): "
+read reisi_algus
+echo -n "Sisesta reisi ööpäevade arv: "
+read reisi_pikkus
+
+#arvutused
+#arvutame reisimise täisnädalate arv ja vaatame, palju reisipäevi jääb üle
+veel_reisi_paevad=$((reisi_pikkus % 7))
+#jäänud päevad liidame reisi algus päevale, sest nädal saab niikuinii läbi samal päeval, kui reis algas
+#nii saame teada, millal oleme tagasi
+tagasi=$((reisi_algus + veel_reisi_paevad))
+if [ $tagasi -ge 7 ]
+then
+  tagasi=$((tagasi - 7))
+fi
+
+#tulemuste väljastamine
+echo "Tagasi oled päeval number $tagasi"

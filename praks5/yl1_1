@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# See skript küsib kasutajalt täisnurkse kolmnurga külgede pikkused ja arvutab hüpotenuusi väärtuse
+
+# Küsime kasutajalt a ja b külje väärtused
+read -p "Sisesta a külje väärtus: " a
+read -p "Sisesta b külje väärtus: " b
+
+# Arvutame hüpotenuusi väärtuse
+c=$(echo "scale=2; sqrt($a^2 + $b^2)" | bc)
+
+# Väljastame tulemuse
+echo "Hüpotenuusi väärtus on $c" 
+
+# Skripti lõpp
