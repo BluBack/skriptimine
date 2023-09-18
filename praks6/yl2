@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+#
+# Reisi organiseerimine
+# Inimeste andmed
+echo -n "Palun sisestage reisijate arv: "
+read reisijad
+# Kohad bussis
+echo -n "Palun sisestage bussis olevate kohtade arv: "
+read kohad
+#
+# Arvutused
+#
+# Bussid, kus kõik kohad on täidetud
+bussid=$(($reisijad / $kohad))
+# Inimesed, kes ei saanud koha bussis, kui kõik kohad on täidetud.
+ylejaanud=$(($reisijad % $kohad))
+#
+# Kui on olemas ülejäänud inimesed, tuleb busside arvu suurendada 1 võrra
+if test $ylejaanud -gt 0
+then
+  bussid=$(($bussid + 1))
+fi
+# Busside muutuja vajab üledefineerimist, seetõttu ümbersalvestamiseks, ei kasuta $ märki, kuid arvutamisel juba kasutame
+# Tulenuste väljastamine
+#
+echo "Kokku on vaja $bussid täisbussi"
+#
+# Skripti lõpp
