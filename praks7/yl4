@@ -1,0 +1,20 @@
+#!/bin/bash
+
+kell=`date +%H` # corrected typo and added +%H to get only the hour
+
+if [ $kell -ge 6 -a $kell -lt 12 ]; then
+  tervitus="Tere hommikust,"
+elif [ $kell -ge 12 -a $kell -lt 16 ]; then
+  tervitus="Tere päevast,"
+elif [ $kell -ge 16 -a $kell -lt 20 ]; then
+  tervitus="Tere õhtust,"
+else
+  tervitus="Head ööd,"
+fi
+
+kasutaja=`whoami`
+nimi=`echo $kasutaja | cut -f1 -d"." | cut -c1 | tr [:lower:] [:upper:]``echo $kasutaja | cut -f1 -d"." | cut -c2-` # corrected backticks to $()
+
+echo -n "$tervitus "
+echo -n "$nimi"
+echo "!" # added exclamation mark at end

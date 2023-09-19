@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# aja jargi tervitamine
+#
+echo -e "Sisesta aja vaartus: \c"
+read aeg
+# kontrollime
+if [ $aeg -ge 6 -a $aeg -lt 12 ]; then
+    echo "Tere hommikust!"
+elif [ $aeg -ge 12 -a $aeg -lt 18 ]; then
+    echo "Tere paevast!"
+elif [ $aeg -ge 18 -a $aeg -lt 22 ]; then
+    echo "Tere ohtust!"
+elif [ $aeg -ge 22 -o $aeg -lt 6 ]; then
+    echo "Head ood!"
+else
+    echo "Vale sisend"
+fi
+# skripti lopp
