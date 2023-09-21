@@ -1,0 +1,14 @@
+#!/bin/bash
+#kuu jargi kuu nimetuse valjastus
+
+kuud=("jaanuar" "veebruar" "marts" "aprill" "mai" "juuni" "juuli" "august" "september" "oktoober" "november" "detsember")
+
+echo -e "Sisesta kuu number: \c"
+read kuu_nr
+
+if [ $kuu_nr -ge 1 -a $kuu_nr -le 12 ]
+then
+    echo "See on ${kuud[$(($kuu_nr-1))]}"
+else
+    echo "Sisestasid vale number, kuu number on 1-12"
+fi
